@@ -11,7 +11,7 @@ def main():
         cwd=str(REPO_PATH))
     
     subprocess.run(
-        ["docker", "push", "ghrc.io/fuquery/antora:latest"],
+        ["docker", "push", "ghcr.io/fuquery/antora:latest"],
         check=True,
         cwd=str(REPO_PATH))
 
