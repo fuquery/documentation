@@ -1,0 +1,13 @@
+ifdef::show-extra[]
+== rsl
+include::partial$project-table-head.adoc[]
+endif::[]
+
+|https://github.com/fuquery/rsl[*rsl*] 
+|xref:rsl:ROOT:index.adoc[docs]
+|General utility library with reflection-friendly standard library reimplementations
+
+ifdef::show-extra[]
+|===
+
+endif::[]

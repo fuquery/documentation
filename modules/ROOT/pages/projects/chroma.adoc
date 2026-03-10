@@ -1,0 +1,13 @@
+ifdef::show-extra[]
+== chroma
+include::partial$project-table-head.adoc[]
+endif::[]
+
+|https://github.com/fuquery/chroma[*chroma*] 
+|xref:chroma:ROOT:index.adoc[docs]
+|A tiny reflective function coloring library
+
+ifdef::show-extra[]
+|===
+
+endif::[]

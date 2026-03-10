@@ -1,0 +1,14 @@
+ifdef::show-extra[]
+== config
+include::partial$project-table-head.adoc[]
+endif::[]
+
+|https://github.com/fuquery/config[*config*] 
+|xref:rsl-config:ROOT:index.adoc[docs]
+|Command line argument parsing and configuration management library
+
+ifdef::show-extra[]
+|===
+CAUTION: This has not yet been made compatible with GCC
+
+endif::[]

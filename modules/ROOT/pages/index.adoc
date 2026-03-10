@@ -1,0 +1,32 @@
+= Home
+
+``fuquery`` is a collection of experimental C++ libraries and other utilities with a focus on reflective metaprogramming. 
+
+[TIP]
+====
+++++
+<p style="margin:0; display:flex; align-items:center; gap:0.5em;">
+  <button class="audio-play-button" style="background:none;border:none;cursor:pointer;padding:0;" title="Play pronunciation">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+    </svg>
+    <audio src="_attachments/fuquery.mp3" preload="none"></audio>
+  </button>
+  <span>fuquery is pronounced "foo query" (/fuː ˈkwɪəri/)</span>
+</p>
+
+<script>
+document.querySelectorAll('.audio-play-button').forEach(button => {
+  const audio = button.querySelector('audio');
+  button.addEventListener('click', () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+});
+</script>
+++++
+====
+
+
+Here's an overview:
+include::project-table.adoc[]

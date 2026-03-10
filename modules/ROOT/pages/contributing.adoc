@@ -1,0 +1,50 @@
+= Contributing
+
+Thank you for your interest in contributing to fuquery projects. Contributions of all sizes and shapes are welcome - not just code contributions.
+
+This document applies to all repositories in the https://github.com/fuquery[fuquery organization] unless a repository specifies otherwise.
+
+== Before You Start
+
+- Please check existing issues and pull requests to avoid duplicate work
+- For larger changes, consider opening an issue or reaching out on https://discord.gg/YWfdM2tctt[Discord] first to discuss the approach
+- Try to keep contributions narrow in scope
+
+== Reporting Issues
+
+When reporting a problem, please include:
+
+- A clear description of the issue
+- Steps to reproduce
+- Expected vs. actual behavior
+- Relevant environment information if applicable
+
+If possible, include a minimal reproducer.
+
+== Submitting Changes
+
+1. Fork the repository and create a topic branch
+2. Make your changes
+3. Submit a pull request
+
+Pull requests should:
+
+- Clearly describe the change and motivation
+- Stay focused on a single topic
+- Include updates to documentation when relevant
+- Include tests for the introduced changes
+
+Maintainers may request revisions before merging.
+
+== Style
+
+The style used in C++ fuquery projects is roughly documented in xref:contributing/cpp_style.adoc[].
+
+== Licensing
+
+By submitting a contribution, you agree that it will be licensed under the same license as the target project.  
+fuquery projects are typically licensed under **MIT** or **0BSD**.
+
+== AI-Generated Contributions
+
+Contributions generated wholly or partially by AI systems are generally not welcome.

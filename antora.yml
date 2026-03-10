@@ -1,0 +1,5 @@
+name: _
+version: ~
+title: fuquery
+nav:
+- modules/ROOT/nav.adoc

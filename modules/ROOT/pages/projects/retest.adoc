@@ -1,0 +1,15 @@
+ifdef::show-extra[]
+== retest
+include::partial$project-table-head.adoc[]
+endif::[]
+
+|https://github.com/fuquery/retest[*retest*] 
+|xref:rsl-test:ROOT:index.adoc[docs]
+|Modern, reflective test framework
+
+ifdef::show-extra[]
+|===
+
+IMPORTANT: There are significant design changes planned for retest
+
+endif::[]

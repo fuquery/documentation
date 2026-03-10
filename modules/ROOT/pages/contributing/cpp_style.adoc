@@ -1,0 +1,70 @@
+= C++ Code Style
+
+This document briefly summarizes stylistic choices made in fuquery subprojects.
+
+== Layout and namespaces
+Currently there are three top-level namespaces used in fuqery projects:
+
+* `rsl` for the rsl project
+* `re` for the retest project
+* `erl` for **e**xperimental **r**eflective **l**ibraries
+
+Relative to the repository's root the primary include path must be `include/<namespace>` where `<namespace>` is the associated top-level namespace. Files in this folder are considered part of the public API, may contribute to the associated top-level namespace directly and shall not have a file extension.
+
+Implementation details shall be collected in a directory whose name starts with `_impl`. For top-level namespaces shared between projects, the project name must be included (ie `include/rsl/_impl_config` for rsl-config). Implementation detail headers shall have the file extension `.hpp` and may **not** contribute to the associated top-level namespace directly.
+
+== Macros
+=== Dollar macros
+[source,c++ diff]
+----
+- RSL_INLINE(always)
++ $inline(always)
+void foo() {}
+----
+
+MSVC, GCC and Clang explicitly support `$` in identifiers. However, GCC notes that this might cause issues with some target assemblers. Since macros are gone at that point, the use of dollars in macro identifiers is unproblematic.
+
+This distinguishes macros clearly from other source constructs, therefore use of dollar macro identifiers is encouraged.
+
+== Identifiers
+=== Format
+Two different styles are used throughout the projects. For top-level namespaces standard library style should be used, meaning:
+[source,c++]
+----
+// namespaces are always snake_case
+namespace rsl {
+
+// snake_case for types in the rsl namespace
+struct some_type;
+
+// snake_case for functions, variables etc
+void some_func();
+constexpr inline bool some_var = true;
+}
+----
+
+However, in implementation details we are free to use a slightly different style:
+[source,c++]
+----
+// implementation detail namespaces begin with _impl_
+namespace rsl::_impl_foo {
+
+// PascalCase for types
+struct SomeType;
+
+// snake_case for functions, variables etc
+void some_func();
+constexpr inline bool some_var = true;
+}
+----
+
+=== Uglifying members
+To ensure specific types are structural types, we sometimes cannot have non-public data members. Whenever this is the case, uglify the identifiers by prepending `_impl_`.
+
+[source,c++ diff]
+----
+struct something_structural {
+-  int secret;
++  int _impl_secret;
+};
+----

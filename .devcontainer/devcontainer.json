@@ -1,0 +1,11 @@
+{
+  "name": "Antora",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "mounts": [
+		// workaround for google repo
+    "source=${localWorkspaceFolder}/../.repo/projects/docs.git,target=/workspaces/docs/.git,type=bind,consistency=cached"
+  ]
+}

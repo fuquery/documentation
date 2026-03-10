@@ -1,0 +1,4 @@
+= Projects
+
+:show-extra:
+include::project-table.adoc[]

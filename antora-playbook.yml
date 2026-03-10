@@ -1,0 +1,25 @@
+asciidoc:
+  attributes:
+    source-highlighter: rouge
+    rouge-style: github
+site:
+  title: fuquery
+  start_page: _::index.adoc
+output:
+  dir: build
+content:
+  sources:
+  - url: .
+    start_paths: [.]
+  # - url: ..
+  #   branches: HEAD
+  #   start_paths: [projects/test/docs]
+  # - url: ..
+  #   branches: HEAD
+  #   start_paths: [projects/util/docs]
+ui:
+  bundle:
+    url: ui
+antora:
+  extensions:
+  - '@antora/lunr-extension'

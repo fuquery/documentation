@@ -1,0 +1,14 @@
+ifdef::show-extra[]
+== log
+include::partial$project-table-head.adoc[]
+endif::[]
+
+|https://github.com/fuquery/log[*log*] 
+|xref:rsl-log:ROOT:index.adoc[docs]
+|A reflective logging library inspired by https://docs.rs/tracing[tracing]
+
+ifdef::show-extra[]
+|===
+CAUTION: This has not yet been made compatible with GCC
+
+endif::[]
