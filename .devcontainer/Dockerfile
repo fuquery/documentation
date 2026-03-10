@@ -21,6 +21,7 @@ RUN pip install pyyaml
 RUN pip install watchdog
 
 RUN yarn global add @antora/lunr-extension
+RUN yarn global add @antora/collector-extension
 
 RUN apk add --no-cache curl tar xz \
  && curl -L https://github.com/cppalliance/mrdocs/releases/download/v${MRDOCS_VERSION}/MrDocs-${MRDOCS_VERSION}-Linux.tar.xz \
@@ -29,6 +30,11 @@ RUN apk add --no-cache curl tar xz \
  && tar -xJf /tmp/mrdocs.tar.xz -C /opt/mrdocs --strip-components=1 \
  && rm /tmp/mrdocs.tar.xz \
  && ln -s /opt/mrdocs/bin/mrdocs /usr/local/bin/mrdocs
+
+# Patch code blocks for use with rouge
+COPY .devcontainer/code-block.patch /opt/mrdocs/code-block.patch
+RUN patch -p1 -d /opt/mrdocs < /opt/mrdocs/code-block.patch
+RUN rm /opt/mrdocs/code-block.patch
 
 USER node
 

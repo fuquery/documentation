@@ -107,13 +107,25 @@ html_files.each do |path|
     # Strip any "language-" prefix just in case
     lang = lang.sub(/^language-/, '')
 
-    source = code_node.text
+    source_html = code_node.inner_html
+
+    links = []
+    source = source_html.gsub(/<a[^>]*class="xref[^"]*"[^>]*>.*?<\/a>/) do |link|
+      token = "ROUGE_LINK_#{links.length}"
+      links << link
+      token
+    end
+    source = Nokogiri::HTML.fragment(source).text
 
     lexer = Rouge::Lexer.find_fancy(lang, source) || Rouge::Lexers::PlainText.new
     formatter = Rouge::Formatters::HTML.new
 
     if diff_enabled
       highlighted_html = formatter.format(lexer.lex(source))
+      links.each_with_index do |link, i|
+        highlighted_html.gsub!("ROUGE_LINK_#{i}", link)
+      end
+
       source_lines = source.lines.map(&:chomp)
       highlighted_lines = highlighted_html.lines.map(&:chomp)
 
@@ -140,6 +152,10 @@ html_files.each do |path|
       changed = true
     else
       highlighted = formatter.format(lexer.lex(source))
+      links.each_with_index do |link, i|
+        highlighted.gsub!("ROUGE_LINK_#{i}", link)
+      end
+
       frag = Nokogiri::HTML::DocumentFragment.parse(
         "<div class='rouge'><pre><code class='highlight #{lang}'>#{highlighted}</code></pre></div>"
       )

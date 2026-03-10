@@ -1,0 +1,10 @@
+diff --git a/share/mrdocs/addons/generator/adoc/partials/markup/code-block.adoc.hbs b/share/mrdocs/addons/generator/adoc/partials/markup/code-block.adoc.hbs
+index 6037d1a7..71ba6ad3 100644
+--- a/share/mrdocs/addons/generator/adoc/partials/markup/code-block.adoc.hbs
++++ b/share/mrdocs/addons/generator/adoc/partials/markup/code-block.adoc.hbs
+@@ -1,4 +1,4 @@
+-[source,cpp,subs="verbatim,replacements,macros,-callouts"]
++[source,cpp,subs="verbatim,-replacements,+macros,+callouts"]
+ ----
+ {{> @partial-block }}
+ 
