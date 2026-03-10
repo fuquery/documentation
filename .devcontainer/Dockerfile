@@ -32,9 +32,9 @@ RUN apk add --no-cache curl tar xz \
  && ln -s /opt/mrdocs/bin/mrdocs /usr/local/bin/mrdocs
 
 # Patch code blocks for use with rouge
-COPY .devcontainer/code-block.patch /opt/mrdocs/code-block.patch
-RUN patch -p1 -d /opt/mrdocs < /opt/mrdocs/code-block.patch
-RUN rm /opt/mrdocs/code-block.patch
+# COPY .devcontainer/code-block.patch /opt/mrdocs/code-block.patch
+# RUN patch -p1 -d /opt/mrdocs < /opt/mrdocs/code-block.patch
+# RUN rm /opt/mrdocs/code-block.patch
 
 USER node
 
