@@ -1,7 +1,3 @@
-asciidoc:
-  attributes:
-    source-highlighter: rouge
-    rouge-style: github
 site:
   title: fuquery
   start_page: _::index.adoc
@@ -11,15 +7,13 @@ content:
   sources:
   - url: .
     start_paths: [.]
-  # - url: ..
-  #   branches: HEAD
-  #   start_paths: [projects/test/docs]
-  # - url: ..
-  #   branches: HEAD
-  #   start_paths: [projects/util/docs]
+  - url: https://github.com/fuquery/rsl.git
+    branches: docs
+    start_path: docs
 ui:
   bundle:
     url: ui
 antora:
   extensions:
   - '@antora/lunr-extension'
+  - '@antora/collector-extension'
