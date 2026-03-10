@@ -16,6 +16,36 @@ module Rouge
   end
 end
 
+
+ENTITY_MAP = {
+  '&amp;'   => '&',
+  '&curlybr;' => '{',
+  '&rcurlybr;' => '}',
+  '&lowbar;' => '_',
+  '&period;' => '.',
+  '&colon;'  => ':',
+  '&lsqb;'   => '[',
+  '&rsqb;'   => ']',
+  '&verbar;' => '|',
+  '&sol;'    => '/',
+  '&quest;'   => '?',
+  '&excl;'    => '!',
+  '&num;'     => '#',
+  '&dollar;'  => '$',
+  '&percnt;'  => '%',
+  '&ast;'     => '*',
+  '&plus;'    => '+',
+  '&equals;'  => '=',
+  '&comma;'   => ',',
+  '&semi;'    => ';',
+  '&quot;'    => '"',
+  '&apos;'    => "'",
+  '&rcub;'    => '}',
+  '&lcub;'    => '{',
+# these replacements happen in code blocks some time, just revert them
+  '®'         => '(R)', 
+  '©'         => '(C)',
+}
 base_path = ARGV[0] || 'build'
 
 # Dump all Rouge themes and patch them
@@ -112,10 +142,12 @@ html_files.each do |path|
     links = []
     source = source_html.gsub(/<a[^>]*class="xref[^"]*"[^>]*>.*?<\/a>/) do |link|
       token = "ROUGE_LINK_#{links.length}"
+      ENTITY_MAP.each { |k,v| link.gsub!(k,v) }
       links << link
       token
     end
     source = Nokogiri::HTML.fragment(source).text
+    ENTITY_MAP.each { |k,v| source.gsub!(k,v) }
 
     lexer = Rouge::Lexer.find_fancy(lang, source) || Rouge::Lexers::PlainText.new
     formatter = Rouge::Formatters::HTML.new
@@ -168,4 +200,11 @@ html_files.each do |path|
     File.write(path, doc.to_html)
     puts "Rehighlighted #{path}"
   end
+end
+
+
+html_files.each do |path|
+  content = File.read(path)
+  ENTITY_MAP.each { |k,v| content.gsub!(k,v) }
+  File.write(path, content)
 end
