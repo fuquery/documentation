@@ -19,7 +19,7 @@ RUN apk add --no-cache python3 py3-pip
 RUN pip install pyyaml
 RUN pip install watchdog
 
-RUN npm install -g @antora/lunr-extension
+RUN yarn global add @antora/lunr-extension
 
 USER node
 
