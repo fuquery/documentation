@@ -12,4 +12,4 @@ echo "Initializing repo workspace..."
 repo init -u "$MANIFEST_REPO"
 
 echo "Syncing all repositories..."
-repo sync -c -j$(nproc)
+repo sync -c -j$(nproc) --verify
