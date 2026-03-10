@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/fuquery/antora:latest
+      options: --user root
 
     environment:
       name: github-pages
