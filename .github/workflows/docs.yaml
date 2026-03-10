@@ -17,14 +17,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/fuquery/antora:latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    container:
-      build:
-        context: .
-        dockerfile: .devcontainer/Dockerfile
 
     steps:
       - name: Checkout repository
