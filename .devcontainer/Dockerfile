@@ -1,4 +1,5 @@
 FROM antora/antora
+ARG MRDOCS_VERSION=0.8.0
 
 
 RUN apk add --no-cache \
@@ -20,6 +21,14 @@ RUN pip install pyyaml
 RUN pip install watchdog
 
 RUN yarn global add @antora/lunr-extension
+
+RUN apk add --no-cache curl tar xz \
+ && curl -L https://github.com/cppalliance/mrdocs/releases/download/v${MRDOCS_VERSION}/MrDocs-${MRDOCS_VERSION}-Linux.tar.xz \
+    -o /tmp/mrdocs.tar.xz \
+ && mkdir -p /opt/mrdocs \
+ && tar -xJf /tmp/mrdocs.tar.xz -C /opt/mrdocs --strip-components=1 \
+ && rm /tmp/mrdocs.tar.xz \
+ && ln -s /opt/mrdocs/bin/mrdocs /usr/local/bin/mrdocs
 
 USER node
 
