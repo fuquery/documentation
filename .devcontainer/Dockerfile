@@ -9,7 +9,8 @@ ruby \
 ruby-dev \
 build-base \
 libxml2-dev \
-libxslt-dev
+libxslt-dev \
+tar
 
 RUN gem install --no-document rouge nokogiri
 
@@ -18,7 +19,7 @@ RUN apk add --no-cache python3 py3-pip
 RUN pip install pyyaml
 RUN pip install watchdog
 
-RUN npm i antora @antora/lunr-extension
+RUN npm install -g antora @antora/lunr-extension
 
 USER node
 
