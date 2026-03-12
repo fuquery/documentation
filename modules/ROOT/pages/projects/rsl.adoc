@@ -10,4 +10,7 @@ endif::[]
 ifdef::show-extra[]
 |===
 
+:brief:
+include:rsl:ROOT:index.adoc[]
+
 endif::[]
