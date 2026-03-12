@@ -11,8 +11,12 @@ ifdef::show-extra[]
 |===
 
 :brief:
+
 :leveloffset: +1
+
 include:rsl:ROOT:index.adoc[]
+
 :leveloffset: -1
+
 
 endif::[]
