@@ -1,5 +1,5 @@
 ifdef::show-extra[]
-== rsl
+== Reflection Support Library
 include::partial$project-table-head.adoc[]
 endif::[]
 
@@ -7,16 +7,14 @@ endif::[]
 |xref:rsl:ROOT:index.adoc[docs]
 |General utility library with reflection-friendly standard library reimplementations
 
+
+
 ifdef::show-extra[]
 |===
 
 :brief:
-
 :leveloffset: +1
-
-include:rsl:ROOT:index.adoc[]
-
+include::rsl:ROOT:index.adoc[]
 :leveloffset: -1
-
 
 endif::[]
