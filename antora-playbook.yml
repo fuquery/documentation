@@ -10,6 +10,9 @@ content:
   - url: https://github.com/fuquery/rsl.git
     branches: docs
     start_path: docs
+  - url: https://github.com/fuquery/chroma.git
+    branches: master
+    start_path: docs
 ui:
   bundle:
     url: ui

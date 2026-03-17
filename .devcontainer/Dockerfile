@@ -10,4 +10,4 @@ RUN yarn global add @antora/lunr-extension
 RUN yarn global add @antora/collector-extension
 
 RUN pip install --no-input --root-user-action=ignore pyyaml
-RUN pip install --no-input --root-user-action=ignore git+https://github.com/tsche/claudoc.git
+RUN pip install --no-input --root-user-action=ignore git+https://github.com/tsche/claudoc.git@master
