@@ -683,7 +683,7 @@ object[type="image/svg+xml"]:not([width]) {
 }
 
 .nav-panel-explore .component .title {
-  font-weight: 600;
+  /* font-weight: 600; */
   text-indent: .375rem hanging
 }
 
@@ -712,10 +712,8 @@ object[type="image/svg+xml"]:not([width]) {
   opacity: .75
 }
 
-.nav-panel-explore .component .is-current a {
-  background: var(--color-fg-heading);
-  color: var(--color-bg-light);
-  font-weight: 600;
+.nav-panel-explore .component.is-current a {
+  font-weight: 700;
   opacity: 1
 }
 
